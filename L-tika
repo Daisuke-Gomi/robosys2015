@@ -1,0 +1,18 @@
+Enter file contents here# -*- coding: utf-8 -*-
+import RPi.GPIO as GPIO
+import time
+
+a = 1
+COUNT = 10
+PIN1 = 25
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(PIN1,GPIO.OUT)
+
+for _ in xrange(COUNT):
+	GPIO.output(PIN1,True)
+	time.sleep(a)
+	GPIO.output(PIN1,False)
+	time.sleep(a)
+	a = a - 0.1
+
+GPIO.cleanup()
